@@ -271,13 +271,14 @@
     background: white;
     border-radius: 16px;
     padding: 24px 28px;
-    box-shadow: 0 2px 16px var(--shadow);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.08);
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
   }
   .tl-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.16);
   }
 
   .tl-card .week-label {
@@ -321,9 +322,16 @@
     content: '';
     position: absolute;
     left: 0; top: 16px; bottom: 16px;
-    width: 4px;
-    border-radius: 2px;
+    width: 5px;
+    border-radius: 3px;
   }
+  .tl-node:nth-child(1) .tl-card::before { background: var(--yellow); }
+  .tl-node:nth-child(2) .tl-card::before { background: var(--orange); }
+  .tl-node:nth-child(3) .tl-card::before { background: var(--red); }
+  .tl-node:nth-child(4) .tl-card::before { background: var(--purple); }
+  .tl-node:nth-child(5) .tl-card::before { background: var(--pink); }
+  .tl-node:nth-child(6) .tl-card::before { background: var(--green); }
+  .tl-node:nth-child(7) .tl-card::before { background: var(--teal); }
   .tl-node:nth-child(odd) .tl-card::before {
     left: auto;
     right: 0;
@@ -337,8 +345,8 @@
     display: none;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(4px);
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(8px);
     z-index: 1000;
     align-items: center;
     justify-content: center;
