@@ -501,6 +501,18 @@
     color: var(--text);
   }
 
+  /* ======= SCENE ILLUSTRATIONS ======= */
+  .modal-scene {
+    padding: 20px 32px 0;
+  }
+  .modal-scene svg {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    background: linear-gradient(180deg, #FFF9F0 0%, #FDF6EC 100%);
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+  }
+
   .modal-nav {
     display: flex;
     justify-content: space-between;
@@ -680,9 +692,9 @@
         </svg>
       </div>
       <div class="tl-card">
-        <div class="week-label" style="background:#FFF3CD; color:#B8860B;">Weeks 1 &ndash; 2</div>
+        <div class="week-label" style="background:#FFF3CD; color:#B8860B;">Week 6</div>
         <h3>The Big Question</h3>
-        <p>What does it mean to create in a world where AI can build anything? Our team forms around this inquiry.</p>
+        <p>What does it mean to make things when AI can build anything? We formed a team around that question.</p>
         <div class="click-hint">Click to explore &rarr;</div>
       </div>
     </div>
@@ -699,9 +711,9 @@
         </svg>
       </div>
       <div class="tl-card">
-        <div class="week-label" style="background:#FFE5CC; color:#D35400;">Weeks 3 &ndash; 4</div>
+        <div class="week-label" style="background:#FFE5CC; color:#D35400;">Weeks 6 &ndash; 7</div>
         <h3>Willy Wonka's Vibe Coding Factory</h3>
-        <p>We build a satirical candy-factory experience critiquing Silicon Valley. Reachy dispenses startup ideas.</p>
+        <p>We build a satirical candy-factory to make fun of Silicon Valley. Reachy dispenses startup ideas.</p>
         <div class="click-hint">Click to explore &rarr;</div>
       </div>
     </div>
@@ -716,9 +728,9 @@
         </svg>
       </div>
       <div class="tl-card">
-        <div class="week-label" style="background:#FDDEDE; color:#C0392B;">Week 5</div>
+        <div class="week-label" style="background:#FDDEDE; color:#C0392B;">Week 7</div>
         <h3>We Used Magic to Build Boring Software</h3>
-        <p>The midpoint review reveals the painful irony: we became exactly what we were satirizing.</p>
+        <p>The midpoint review hits hard: we became exactly what we were making fun of.</p>
         <div class="click-hint">Click to explore &rarr;</div>
       </div>
     </div>
@@ -734,9 +746,9 @@
         </svg>
       </div>
       <div class="tl-card">
-        <div class="week-label" style="background:#EDE0F5; color:#7D3C98;">Weeks 5 &ndash; 7</div>
+        <div class="week-label" style="background:#EDE0F5; color:#7D3C98;">Weeks 7 &ndash; 8</div>
         <h3>Turn Off the Inner Critic</h3>
-        <p>Ratto, Chiang, and Sontag give us permission to stop being clever and start being honest.</p>
+        <p>Ratto, Chiang, and Sontag give us permission to stop being clever and just be honest.</p>
         <div class="click-hint">Click to explore &rarr;</div>
       </div>
     </div>
@@ -758,7 +770,7 @@
         </svg>
       </div>
       <div class="tl-card">
-        <div class="week-label" style="background:#FDEAEF; color:#C0507E;">Weeks 7 &ndash; 8</div>
+        <div class="week-label" style="background:#FDEAEF; color:#C0507E;">Weeks 8 &ndash; 9</div>
         <h3>Finding the m(AI)gic</h3>
         <p>Childhood dreams replace startup ideas. Physical coloring pages replace digital screens. Joy replaces irony.</p>
         <div class="click-hint">Click to explore &rarr;</div>
@@ -781,7 +793,7 @@
       <div class="tl-card">
         <div class="week-label" style="background:#D5F5E3; color:#1E8449;">Week 9</div>
         <h3>Build-a-Bear Meets Kindergarten</h3>
-        <p>We construct an immersive party room: streamers, balloons, candy, and Reachy at the center of it all.</p>
+        <p>We go overboard decorating a room: streamers, balloons, candy, and Reachy in a party hat at the center.</p>
         <div class="click-hint">Click to explore &rarr;</div>
       </div>
     </div>
@@ -798,7 +810,7 @@
       <div class="tl-card">
         <div class="week-label" style="background:#D0F0ED; color:#1A7A6D;">Week 10</div>
         <h3>The Showcase &mdash; Uncovering the Happy Child</h3>
-        <p>Visitors step inside, talk to Reachy about forgotten dreams, and leave with a personalized coloring page.</p>
+        <p>People sit on the floor, talk to Reachy about forgotten dreams, and leave with a coloring page of their own.</p>
         <div class="click-hint">Click to explore &rarr;</div>
       </div>
     </div>
@@ -829,14 +841,14 @@
   <p class="quote">"Nothing is a mistake. There's only make."</p>
 
   <p class="final-thought">
-    When AI can build anything, the only thing that truly matters is your choice.
-    The highest form of human agency in the AI era is choosing, simply, to play.
+    When AI can build anything, the only thing that matters is what you choose to build.
   </p>
 
   <p class="final-thought">
-    Stop paying attention to productive work for six minutes.
-    Let the robot validate your imagination.
-    Uncover the happy child underneath.
+    Stop being productive for six minutes.
+    Let the robot ask about your dreams.
+    Pick up a crayon.
+    Find the kid you used to be.
   </p>
 
   <p class="team-credit">CS 334 &middot; Stanford University &middot; Spring 2026</p>
@@ -847,6 +859,7 @@
   <div class="modal" id="modal">
     <button class="modal-close" onclick="closeModal()">&times;</button>
     <div class="modal-header" id="modalHeader"></div>
+    <div class="modal-scene" id="modalScene"></div>
     <div class="modal-body" id="modalBody"></div>
     <div class="modal-nav">
       <button id="prevBtn" onclick="navModal(-1)">&larr; Previous</button>
@@ -859,91 +872,105 @@
 // ======= TIMELINE DATA =======
 const stages = [
   {
-    week: "Weeks 1 – 2",
+    week: "Week 6",
     weekColor: "#B8860B",
     weekBg: "#FFF3CD",
     iconBg: "#FFD93D",
     title: "The Big Question",
     icon: "lightbulb",
+    scene: "meeting",
     sections: [
       { type: "h4", text: "The Guiding Inquiry" },
-      { type: "p", text: "Our team came together around a question that felt urgent and unresolved: What does it mean to be a human creator in an era when AI can build almost anything? If execution is no longer the bottleneck, what is left for us?" },
-      { type: "p", text: "We were each drawn to different facets of this — Alexa to the aesthetic and architectural side, Mudit to the technical possibilities, Kyle to the bigger vision of what the project could say. But we all felt the same dissonance: we were students at Stanford, surrounded by AI tools that could generate code, write essays, make art. What was our role?" },
+      { type: "p", text: "We started this project with a question we couldn't stop thinking about: What does it mean to make things when AI can build almost anything? If execution isn't the hard part anymore, what's left for us?" },
+      { type: "p", text: "Each of us came at it from a different angle — Alexa from the design and aesthetic side, Mudit from the technical possibilities, Kyle from the bigger picture of what the project could say. But we all had the same uneasy feeling: we were students at Stanford, surrounded by AI tools that could generate code, write essays, make art. So what were we supposed to do?" },
       { type: "h4", text: "Meeting Reachy" },
-      { type: "p", text: "And then we met Reachy — a small humanoid robot with big round eyes, twin antennae, and stubby arms that could gesture and tilt. Unlike a chatbot or a screen, Reachy existed in physical space. It could look at you, turn toward your voice, react with its whole body. Something about its presence felt different from every other AI interface we'd used." },
-      { type: "p", text: "We immediately started asking: what could this embodied presence unlock that a screen couldn't?" },
+      { type: "p", text: "Then we met Reachy — a small humanoid robot with big round eyes, twin antennae, and stubby arms that could gesture and tilt. Unlike a chatbot or a screen, Reachy was there in the room with you. It could look at you, turn toward your voice, react with its whole body. It felt completely different from talking to ChatGPT." },
+      { type: "p", text: "Right away we were asking: what can this thing do that a screen can't?" },
       { type: "h4", text: "What We Were Thinking" },
-      { type: "insight", color: "var(--yellow)", label: "Team Mindset", text: "We were excited, a little intimidated by the technical challenge (none of us had strong engineering backgrounds), and eager to make something that felt intellectually ambitious. We gravitated toward satire — it felt safe, clever, and culturally relevant." },
+      { type: "insight", color: "var(--yellow)", label: "Team Mindset", text: "We were excited but kind of intimidated — none of us were engineers. We wanted to make something smart, and satire felt like the safest way to be smart without being vulnerable." },
+      { type: "h4", text: "About CS 334" },
+      { type: "p", text: "CS 334 is Stanford's design and HCI course on human-AI interaction. The class is about designing experiences with AI — not just using AI as a tool, but thinking about what happens when people actually interact with it face-to-face. We were assigned Reachy, a humanoid robot, and told to build an experience that said something real about how humans and AI relate to each other." },
+      { type: "h4", text: "Team Roles & Contributions" },
+      { type: "list", items: [
+        "<strong>Alexa Murray</strong> — Experience design and creative direction. Owned the room installation, physical aesthetics (streamers, coloring station, the whole party vibe), presentation design, and the overall narrative from satire to sincerity.",
+        "<strong>Mudit Gupta</strong> — Technical lead. Built the conversation pipeline connecting Reachy to the AI backend, made the m(AI)gic web interface that ran on the TV, and wired up the image generation and printing system. Also the one on the floor debugging at 2am.",
+        "<strong>Kyle Hu</strong> — Research and conceptual framework. Connected the dots between Matt Ratto, Ted Chiang, and Susan Sontag and what we were actually doing. Designed the experience flow and wrote the conversation prompts that guided how Reachy talked to visitors."
+      ]},
+      { type: "p", text: "None of us really knew how to code going into this. The whole technical pipeline — getting Reachy to hold a conversation, generating images, printing coloring pages — was built almost entirely with AI coding tools. Which, in a way, proved our own point about what AI collaboration can look like." },
     ]
   },
   {
-    week: "Weeks 3 – 4",
+    week: "Weeks 6 – 7",
     weekColor: "#D35400",
     weekBg: "#FFE5CC",
     iconBg: "#FF9F43",
     title: "Willy Wonka's Vibe Coding Factory",
     icon: "candy",
+    scene: "wonka",
     sections: [
       { type: "h4", text: "The Concept" },
-      { type: "p", text: "Our first concept was \"Willy Wonka's Vibe Coding Factory\" — a satirical installation where visitors would enter a whimsical candy-factory world and use a robot to \"vibe code\" their startup ideas, exposing the absurdity of AI hype culture and Silicon Valley's obsession with scale." },
+      { type: "p", text: "Our first concept was \"Willy Wonka's Vibe Coding Factory.\" The idea: a satirical candy-factory where visitors use a robot to \"vibe code\" their startup ideas. We wanted to make fun of how absurd AI hype culture had gotten." },
       { type: "p", text: "The premise: you walk in, talk to Reachy about your billion-dollar startup idea, and the AI would generate a pitch deck, a landing page, a business model — all instantly, all hollow. The satire was supposed to be the point." },
       { type: "h4", text: "What We Actually Built" },
-      { type: "p", text: "In practice, our prototype had Reachy dispensing uninspiring B2B SaaS ideas — things like \"data management for veterinarians.\" The experience was entirely screen-based, optimized for frictionless efficiency. We treated Reachy — this expressive, physical, humanoid robot — as essentially a camera with arms." },
-      { type: "p", text: "We were driven by what we came to call \"Digital Maoism\" (borrowing from Jaron Lanier) — flattening our imaginations to match the expectations of tech culture. We built what we thought we should build, not what we actually wanted to build." },
+      { type: "p", text: "In practice, our prototype had Reachy dispensing uninspiring B2B SaaS ideas — things like \"data management for veterinarians.\" Everything happened on a screen. It was efficient, frictionless, and kind of lifeless. We were treating Reachy — this expressive physical robot — as basically a camera with arms." },
+      { type: "p", text: "We later realized we were doing what Jaron Lanier calls \"Digital Maoism\" — squashing our own imaginations to match what tech culture expected of us. We built what we thought we should build, not what we actually wanted to build." },
       { type: "h4", text: "What We Were Thinking" },
       { type: "insight", color: "var(--orange)", label: "The Trap of the Shoulds", text: "We thought we should build serious software. Should critique Silicon Valley. Should make something that looked like a real product. The \"shoulds\" were invisible to us at the time — they just felt like good judgment." },
     ]
   },
   {
-    week: "Week 5",
+    week: "Week 7",
     weekColor: "#C0392B",
     weekBg: "#FDDEDE",
     iconBg: "#EE5A5A",
     title: "We Used Magic to Build Boring Software",
     icon: "lightning",
+    scene: "crisis",
     sections: [
       { type: "h4", text: "The Midpoint Reckoning" },
-      { type: "p", text: "Week 5 was the midpoint review, and it cracked everything open. We presented our Willy Wonka prototype and the feedback hit hard — not because it was harsh, but because it was honest. The pushback focused on something we hadn't wanted to see: what did we want the audience to think, feel, or take away? Not what did the technology do." },
+      { type: "p", text: "Week 7 was the midpoint review, and it broke everything open. We presented our Willy Wonka prototype and the feedback hit hard — not because it was mean, but because it was right. The question we kept getting asked was one we'd been avoiding: what do you want people to feel? Not what does the technology do." },
       { type: "quote", text: "We had an infinite magic wand — AI that could generate anything — and we used it to build boring things. The satire became unintentional self-parody." },
       { type: "h4", text: "The Painful Irony" },
-      { type: "p", text: "We were trying to satirize the tech industry's tendency to use powerful tools for trivial purposes. But that's exactly what we were doing. We had a humanoid robot — a physically embodied, expressive AI agent — and we used it to generate SaaS ideas on a screen. The medium (magical robot) and the message (boring software) were fundamentally misaligned." },
+      { type: "p", text: "We were trying to make fun of the tech industry using powerful tools for trivial things. But that's exactly what we were doing. We had a humanoid robot — this physical, expressive machine — and we used it to generate SaaS ideas on a screen. The medium and the message had nothing to do with each other." },
       { type: "p", text: "The satire was no longer intentional. We were the joke." },
       { type: "h4", text: "What We Were Thinking" },
-      { type: "insight", color: "var(--red)", label: "The Felt Experience", text: "More than the intellectual realization, it was the felt experience of our own boredom that catalyzed the pivot. We were bored by our own project. That boredom was data." },
+      { type: "insight", color: "var(--red)", label: "The Felt Experience", text: "Honestly, more than any intellectual realization, it was just the feeling of being bored by our own project that made us change direction. We were bored. That told us everything we needed to know." },
     ]
   },
   {
-    week: "Weeks 5 – 7",
+    week: "Weeks 7 – 8",
     weekColor: "#7D3C98",
     weekBg: "#EDE0F5",
     iconBg: "#9B6FC3",
     title: "Turn Off the Inner Critic",
     icon: "book",
+    scene: "pivot",
     sections: [
       { type: "h4", text: "The Intellectual Catalysts" },
-      { type: "p", text: "Three thinkers gave us permission to change everything:" },
+      { type: "p", text: "Three writers gave us the permission we needed to blow it all up:" },
       { type: "list", items: [
-        "<strong>Matt Ratto (Critical Making):</strong> Building IS thinking. The act of making something is itself a form of inquiry, not just a means to an end. Our project didn't need to be about something — it could be the argument itself.",
-        "<strong>Ted Chiang:</strong> Art requires choices. If AI removes the need for human choices in creation, what remains? This reframed our entire question — it wasn't about what AI could do, but about what we chose to make with it.",
-        "<strong>Susan Sontag:</strong> Experience over explanation. The value is in the felt experience, not the intellectual framework around it. We needed to stop explaining and start creating something people could feel."
+        "<strong>Matt Ratto (Critical Making):</strong> Making something IS thinking. Building isn't just a step toward some other goal — the project itself can be the argument.",
+        "<strong>Ted Chiang:</strong> Art requires choices. If AI removes the need for human choices, what's left? That reframed everything — it wasn't about what AI could do, it was about what we chose to make with it.",
+        "<strong>Susan Sontag:</strong> Experience over explanation. Stop building intellectual frameworks and start making something people can actually feel."
       ]},
       { type: "h4", text: "Sister Corita Kent's Rule #1" },
       { type: "quote", text: "Consider everything an experiment. Nothing is a mistake. There's no win and no fail, there's only make." },
-      { type: "p", text: "This became our mantra. We realized the inner critic — the voice asking \"is this serious enough?\" — was the same force that made our first prototype boring. You cannot be creative if you are judging yourself at the exact same time. We had to separate evaluation mode from creation mode." },
+      { type: "p", text: "We latched onto this. We realized the inner critic — that voice asking \"is this serious enough?\" — was the same thing that made our first prototype so boring. You can't create and judge yourself at the same time. We had to stop editing and just make." },
       { type: "h4", text: "What We Were Thinking" },
-      { type: "insight", color: "var(--purple)", label: "The Pivotal Realization", text: "We stopped worrying about whether our project was \"serious enough.\" We abandoned the satirical B2B SaaS critique entirely and committed to making an experience filled with genuine wonder. The pivot wasn't from one idea to another — it was from cleverness to honesty." },
+      { type: "insight", color: "var(--purple)", label: "The Pivot", text: "We stopped worrying about whether our project was \"serious enough\" and killed the satirical B2B SaaS thing entirely. The real pivot wasn't changing our idea. It was dropping the cleverness and being honest about what we actually wanted to make." },
     ]
   },
   {
-    week: "Weeks 7 – 8",
+    week: "Weeks 8 – 9",
     weekColor: "#C0507E",
     weekBg: "#FDEAEF",
     iconBg: "#FF6B8A",
     title: "Finding the m(AI)gic",
     icon: "gumball",
+    scene: "magic",
     sections: [
       { type: "h4", text: "The Joy Framework" },
-      { type: "p", text: "Everything flipped. We built a new design framework — \"The Joy Framework\" — that systematically replaced every element of the old approach:" },
+      { type: "p", text: "That's when everything changed. We came up with what we called \"The Joy Framework\" — basically flipping every choice we'd made before:" },
       { type: "list", items: [
         "<strong>Input:</strong> The Happy Child (childhood dreams and buried aspirations) replaced the Hive Mind (tech culture expectations and startup ideas)",
         "<strong>Process:</strong> Tactile/physical making (coloring) replaced screen-based interaction (typing)",
@@ -951,11 +978,11 @@ const stages = [
         "<strong>Output:</strong> Personalized m(ai)gic coloring page replaced B2B SaaS prototype"
       ]},
       { type: "h4", text: "Why Childhood Dreams?" },
-      { type: "p", text: "Childhood dreams are the opposite of \"what should I build?\" — they're what you wanted before the shoulds arrived. Asking about childhood dreams disarms the adult optimization mindset and accesses a more authentic creative impulse. It also creates genuine emotional vulnerability, which transforms the interaction with Reachy from transactional to relational." },
+      { type: "p", text: "Childhood dreams are the opposite of \"what should I build?\" — they're what you wanted before the shoulds showed up. When you ask someone what they wanted to be when they were seven, they stop performing. They just tell you. And that honesty changes how the conversation with Reachy feels — it stops being like using a tool and starts feeling like talking to someone." },
       { type: "h4", text: "Why Coloring Pages?" },
-      { type: "p", text: "Coloring pages are tactile (physical making engages the body), accessible (everyone can color — no skill required), slow (forces a pause, contrasts with AI's instant generation), personal (each page is unique, generated from your own dream), and deliberately non-serious (rejecting the \"should\" of sophistication). Neuroaesthetics research shows making art engages sensory-motor processing and reward circuits — coloring literally reduces stress." },
+      { type: "p", text: "Coloring works because it's physical — your hands are busy, not just your brain. Anyone can do it. It's slow on purpose, which forces you to actually pause instead of rushing to the next thing. Each page is unique to you. And it's intentionally kind of silly, which is exactly what we wanted. There's also real neuroscience behind it: making art activates your brain's reward circuits and reduces stress. It's not just fun — it's doing something to you." },
       { type: "h4", text: "What We Were Thinking" },
-      { type: "insight", color: "var(--pink)", label: "The Name", text: "We called it m(AI)gic — AI embedded within magic. The magic isn't the AI's capability. It's the human experience of having your forgotten dream reflected back to you by a machine that seems to care. The AI is the enabler, not the point." },
+      { type: "insight", color: "var(--pink)", label: "The Name", text: "We called it m(AI)gic — AI embedded within magic. The magic isn't what the AI can do. It's the feeling of telling a machine about a dream you forgot you had, and having it actually seem to care. AI makes it possible, but the magic is the human part." },
     ]
   },
   {
@@ -965,9 +992,10 @@ const stages = [
     iconBg: "#6BCB77",
     title: "Build-a-Bear Meets Kindergarten",
     icon: "crayons",
+    scene: "building",
     sections: [
       { type: "h4", text: "Building the Room" },
-      { type: "p", text: "We transformed a small campus room into a maximalist party. Colorful streamers draped wall to wall — blue, purple, orange, yellow, pink. Balloons covered the floor in every color. Silver holographic fan decorations caught the light. It was deliberately over-the-top, like walking into a child's birthday party." },
+      { type: "p", text: "We took over a small campus room and went completely overboard. Streamers wall to wall — blue, purple, orange, yellow, pink. Balloons covering the floor. Silver holographic fan decorations catching the light. It looked like a 5-year-old's birthday party had exploded. That was the point." },
       { type: "p", text: "At the center: a round table draped in silver fringe, piled high with candy and lollipops. A Hello Kitty gumball machine. And Reachy — wearing a tiny green party hat — surrounded by this explosion of color and sugar." },
       { type: "h4", text: "The Experience Flow" },
       { type: "list", items: [
@@ -978,9 +1006,26 @@ const stages = [
         "Reachy generates a personalized coloring page based on the visitor's dream, printed on a nearby printer",
         "The visitor moves to a coloring station — a small table with crayons, markers, and candy — to color their page"
       ]},
-      { type: "h4", text: "The Technical Risk" },
-      { type: "p", text: "This was a significant technical risk for a team with limited engineering background. The experience was heavily reliant on a custom conversation app built into Reachy, real-time AI generation, and a physical printing pipeline. If any piece failed, the whole experience would collapse. We used Claude Code extensively to build the website, modify the conversation bot, and string all the pieces together." },
-      { type: "insight", color: "var(--green)", label: "Critical Making in Action", text: "The room itself was the argument. Moving from screens to streamers, from efficiency to excess, from optimization to joy — the physical space embodied every intellectual pivot we'd made. Building IS thinking." },
+      { type: "h4", text: "The Technology Stack" },
+      { type: "p", text: "Under the hood, the whole thing was a chain of systems held together with duct tape and determination:" },
+      { type: "list", items: [
+        "<strong>Reachy Robot Platform:</strong> A humanoid robot with head movements, arm gestures, and a camera. We programmed it to tilt toward whoever was talking, pause before answering, and wave its arms when it got excited.",
+        "<strong>Conversational AI Backend:</strong> A conversation app we built that piped Reachy's mic input to a language model. It processed what visitors said, generated follow-up questions about their childhood dreams, and showed the conversation on the TV live.",
+        "<strong>m(AI)gic Web Interface:</strong> A web app on the wall-mounted TV showing the conversation, the gumball machine graphic, and instructions. Built in HTML/CSS/JS with a rainbow border and goofy typography to match the room.",
+        "<strong>AI Image Generation:</strong> After the conversation, the system took whatever dream the visitor described and sent it to an image model to make a custom black-and-white coloring page of their specific dream.",
+        "<strong>Physical Printing Pipeline:</strong> The coloring page got sent automatically to a nearby printer (wearing its own tiny yellow party hat) and came out as a physical page for the visitor to color.",
+        "<strong>Claude Code:</strong> We used Claude Code to build basically everything — the web interface, the conversation logic, the printing pipeline. As people who couldn't really code, we couldn't have done any of this without it. AI helped us build the AI experience."
+      ]},
+      { type: "h4", text: "Challenges & Technical Risks" },
+      { type: "p", text: "For a team that couldn't really code, this was terrifying. If any single piece broke, the whole experience fell apart:" },
+      { type: "list", items: [
+        "<strong>Speech recognition:</strong> Reachy's mic struggled with accents and background noise in the echoey party room. Some visitors had to repeat themselves, which killed the conversational flow.",
+        "<strong>API latency:</strong> Generating the coloring page took 30–60 seconds after the conversation ended. We tried to cover for it by having people move to the coloring station during the wait, but it was pretty obvious.",
+        "<strong>End-to-end fragility:</strong> The pipeline from speech → AI conversation → image generation → printing had tons of failure points. We had to manually jump in and fix things several times during the showcase.",
+        "<strong>Room acoustics:</strong> Small room, hard walls, lots of echo. The streamers helped absorb some sound but didn't fix the problem.",
+        "<strong>Time pressure:</strong> We built the entire technical pipeline and decorated the room in about three weeks — from the pivot to the showcase. Lots of all-nighters."
+      ]},
+      { type: "insight", color: "var(--green)", label: "Critical Making in Action", text: "The room WAS the argument. We'd gone from screens to streamers, from efficiency to excess, from optimization to joy. Every choice in that room reflected the pivot we'd made in our heads. Building is thinking." },
     ]
   },
   {
@@ -990,19 +1035,31 @@ const stages = [
     iconBg: "#4ECDC4",
     title: "The Showcase — Uncovering the Happy Child",
     icon: "star",
+    scene: "showcase",
     sections: [
       { type: "h4", text: "What People Experienced" },
-      { type: "p", text: "Visitors stepped through a sheer curtain into the party room and immediately their demeanor shifted. The space was so deliberately non-serious — balloons underfoot, candy everywhere, streamers overhead — that the adult armor came off. People smiled before anyone said a word." },
-      { type: "p", text: "Then they sat on the floor (there were no chairs — another deliberate choice, putting everyone at kid-height), pulled a gumball, and started talking to Reachy about who they wanted to be when they were young. The conversations were surprisingly intimate. Reachy's physical presence — the way it tilted toward you, paused before responding, gestured with its arms — created something a chatbot never could: the feeling of being seen." },
+      { type: "p", text: "People came through the curtain and you could see them change. Balloons underfoot, candy everywhere, streamers overhead — it was impossible to stay in adult mode. People smiled before anyone said a word." },
+      { type: "p", text: "Then they sat on the floor (we didn't put out chairs on purpose — everyone at kid-height), pulled a gumball, and started talking to Reachy about who they wanted to be when they were little. The conversations got weirdly personal, fast. Something about the way Reachy tilted toward you, paused, gestured with its arms — it made you feel listened to in a way a chatbot never could." },
       { type: "h4", text: "The Experiential Uncanny" },
-      { type: "p", text: "Reachy doesn't need to look human to feel alive. It just needs to respond to your presence. When a machine listens to a quiet aspiration and reacts with excitement, it ceases to be a tool. It becomes a mirror for our own forgotten wonder. We called this \"The Experiential Uncanny\" — a machine that feels present without trying to be human." },
+      { type: "p", text: "Reachy doesn't look human. It doesn't need to. It just needs to respond to you being there. When a machine hears you talk about a dream you forgot you had and gets visibly excited about it, it stops feeling like a tool. It becomes something else. We called this \"The Experiential Uncanny\" — a machine that feels present without trying to pass as human." },
       { type: "h4", text: "The Coloring Station" },
-      { type: "p", text: "After the conversation, visitors received their printed coloring page — completely personalized, generated from their own childhood dream. They moved to the coloring station, picked up crayons, and colored. Some stayed for 15 or 20 minutes. The AI-generated page forced a pause in their day, extending the experience from a quick interaction into sustained creative play." },
+      { type: "p", text: "After the conversation, visitors got their coloring page — a unique illustration of whatever dream they'd just shared. They moved to the coloring station, picked up crayons, and colored. Some stayed for 15 or 20 minutes. What could have been a 3-minute tech demo turned into people just... sitting and coloring. That slowdown was the whole point." },
       { type: "h4", text: "Did We Succeed?" },
       { type: "quote", text: "The project accomplished what we were hoping: an audience's feelings, impact, perspective, the commentary we wanted to make, and the overall experience we wanted to land." },
       { type: "p", text: "If we had more time, we'd refine the conversation flow (making it more natural and resilient to accents), optimize the API pipeline (sending the image request earlier to reduce wait time), and professionalize the room decor. But the core experience — robot asks about dreams, you color them into being — landed exactly as we hoped." },
+      { type: "h4", text: "What We Would Do Differently" },
+      { type: "list", items: [
+        "<strong>Start image generation earlier:</strong> Kick off the coloring page generation during the conversation instead of after. The wait was the weakest part of the whole experience.",
+        "<strong>Better speech handling:</strong> Better noise cancellation and accent support. Some of the best conversations got derailed by the mic not understanding people.",
+        "<strong>Clean up the room design:</strong> Keep the DIY kindergarten energy but make it a little sharper. The vibe was right, the execution could be tighter.",
+        "<strong>Actually document things:</strong> We were so busy making sure nothing crashed that we barely recorded any visitor reactions. Wish we had that data now."
+      ]},
+      { type: "h4", text: "What I Learned" },
+      { type: "p", text: "The scariest thing I did in this class was drop the irony. Hiding behind critique is safe — you get to feel smart without being vulnerable. Building something joyful and hoping people don't think it's dumb? That's genuinely hard. Turns out the best design work comes from the thing you're most afraid to try." },
+      { type: "p", text: "I also learned that when you stop trying to impress people and start trying to move them, the work gets better almost immediately. Our first prototype was clever and boring. The final experience was simple and it made people sit on the floor and color for twenty minutes. I'll take that trade every time." },
+      { type: "p", text: "The other thing that stuck with me: none of us could code. We built the entire technical pipeline with AI tools. That's not a footnote — it's actually the point. When execution stops being the barrier, the only question left is what you think is worth making. For us, the answer turned out to be a party room with a robot and some crayons." },
       { type: "h4", text: "The Argument We Made" },
-      { type: "insight", color: "var(--teal)", label: "The Thesis, Embodied", text: "When AI can build anything, the only meaningful human act is choosing what to build. And the most radical choice is to build something joyful, tactile, and personal — rather than something optimized, scalable, and \"serious.\" Our project didn't just study this question. We lived it. Our pivot from satire to sincerity IS the argument." },
+      { type: "insight", color: "var(--teal)", label: "The Thesis", text: "When AI can build anything, the only thing that matters is what you choose to build. We didn't just write about that question. We lived it. Our pivot from satire to sincerity — from screens to streamers — is the argument." },
     ]
   }
 ];
@@ -1016,6 +1073,156 @@ const iconSVGs = {
   gumball: `<svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="14" r="10" fill="none" stroke="#333" stroke-width="1.5"/><circle cx="14" cy="11" r="3" fill="#FF6B8A"/><circle cx="20" cy="10" r="2.5" fill="#FFD93D"/><circle cx="17" cy="16" r="2.5" fill="#4A90D9"/><circle cx="22" cy="14" r="2" fill="#6BCB77"/><circle cx="12" cy="16" r="2" fill="#FF9F43"/><rect x="14" y="24" width="8" height="4" rx="1" fill="#C0392B"/><rect x="16" y="28" width="4" height="4" rx="0.5" fill="#999"/></svg>`,
   crayons: `<svg viewBox="0 0 36 36" fill="none"><rect x="7" y="10" width="5" height="20" rx="2" fill="#EE5A5A" transform="rotate(-10 10 20)"/><rect x="15" y="8" width="5" height="22" rx="2" fill="#4A90D9"/><rect x="23" y="10" width="5" height="20" rx="2" fill="#FFD93D" transform="rotate(10 26 20)"/><polygon points="9,10 11,4 13,10" fill="#C0392B" transform="rotate(-10 10 20)"/><polygon points="17,8 19,2 21,8" fill="#2980B9"/><polygon points="25,10 27,4 29,10" fill="#D4AC0D" transform="rotate(10 26 20)"/></svg>`,
   star: `<svg viewBox="0 0 36 36" fill="none"><path d="M18 3L21.5 13.5L32 14L24 21.5L26 32L18 26L10 32L12 21.5L4 14L14.5 13.5Z" fill="#4ECDC4" stroke="#2C9E8F" stroke-width="1.5"/><circle cx="18" cy="17" r="4" fill="white" opacity="0.5"/></svg>`
+};
+
+// ======= SCENE ILLUSTRATION SVGS =======
+const sceneSVGs = {
+  meeting: `<svg viewBox="0 0 500 170" fill="none">
+    <rect x="0" y="148" width="500" height="22" rx="0" fill="#F5E6D3" opacity="0.4"/>
+    <rect x="155" y="108" width="190" height="8" rx="4" fill="#D4A574"/>
+    <rect x="175" y="116" width="5" height="38" fill="#C49A6C"/><rect x="320" y="116" width="5" height="38" fill="#C49A6C"/>
+    <g transform="translate(250,58)"><ellipse cx="0" cy="26" rx="13" ry="17" fill="white" stroke="#ddd" stroke-width="1.5"/><circle cx="0" cy="0" r="12" fill="white" stroke="#ddd" stroke-width="1.5"/><circle cx="-4" cy="-1" r="3" fill="#333"/><circle cx="4" cy="-1" r="3" fill="#333"/><circle cx="-3" cy="-2" r="1" fill="white"/><circle cx="5" cy="-2" r="1" fill="white"/><line x1="-6" y1="-10" x2="-10" y2="-19" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><circle cx="-10" cy="-19" r="2" fill="#666"/><line x1="6" y1="-10" x2="10" y2="-19" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><circle cx="10" cy="-19" r="2" fill="#666"/><path d="M-4 4 Q0 8 4 4" fill="none" stroke="#333" stroke-width="1.2" stroke-linecap="round"/><path d="M-13 20 Q-22 12 -26 4" fill="none" stroke="#ddd" stroke-width="2.5" stroke-linecap="round"/><path d="M13 20 Q22 12 26 4" fill="none" stroke="#ddd" stroke-width="2.5" stroke-linecap="round"/></g>
+    <g transform="translate(95,88)"><circle cx="0" cy="0" r="11" fill="#FDBCB4"/><path d="M-11 -3 Q-13 -14 0 -14 Q13 -14 11 -3" fill="#3D2B1F"/><circle cx="-9" cy="-9" r="3.5" fill="#3D2B1F"/><circle cx="9" cy="-9" r="3.5" fill="#3D2B1F"/><circle cx="0" cy="-12" r="3" fill="#3D2B1F"/><circle cx="-3" cy="0" r="1.5" fill="#333"/><circle cx="3" cy="0" r="1.5" fill="#333"/><path d="M-2 4 Q0 6 2 4" fill="none" stroke="#333" stroke-width="0.8"/><rect x="-9" y="11" width="18" height="24" rx="6" fill="#4A90D9"/><text x="16" y="-10" font-size="16" fill="#FFD93D" font-family="sans-serif" font-weight="bold">?</text></g>
+    <g transform="translate(385,83)"><circle cx="0" cy="0" r="11" fill="#C68642"/><path d="M-9 -3 Q-11 -14 0 -14 Q11 -14 9 -3" fill="#1A1A1A"/><circle cx="-3" cy="0" r="1.5" fill="#333"/><circle cx="3" cy="0" r="1.5" fill="#333"/><path d="M-6 3 Q-7 9 0 10 Q7 9 6 3" fill="#1A1A1A" opacity="0.5"/><rect x="-9" y="11" width="18" height="24" rx="6" fill="#FF6B8A"/><text x="16" y="-10" font-size="16" fill="#FFD93D" font-family="sans-serif" font-weight="bold">?</text></g>
+    <g transform="translate(435,93)"><circle cx="0" cy="0" r="11" fill="#FDBCB4"/><path d="M-9 -3 Q-11 -14 0 -15 Q11 -14 9 -3" fill="#3D2B1F"/><circle cx="-3" cy="0" r="1.5" fill="#333"/><circle cx="3" cy="0" r="1.5" fill="#333"/><path d="M-2 4 Q0 6 2 4" fill="none" stroke="#333" stroke-width="0.8"/><rect x="-9" y="11" width="18" height="24" rx="6" fill="#6BCB77"/><text x="16" y="-10" font-size="16" fill="#FFD93D" font-family="sans-serif" font-weight="bold">?</text></g>
+    <text x="195" y="28" font-size="11" fill="#9B6FC3" opacity="0.6">✦</text><text x="305" y="22" font-size="9" fill="#FFD93D" opacity="0.6">✦</text><text x="140" y="42" font-size="10" fill="#4ECDC4" opacity="0.6">✦</text>
+  </svg>`,
+
+  wonka: `<svg viewBox="0 0 500 170" fill="none">
+    <rect x="0" y="148" width="500" height="22" rx="0" fill="#F5E6D3" opacity="0.4"/>
+    <rect x="180" y="50" width="140" height="95" rx="8" fill="#E8E8E8" stroke="#CCC" stroke-width="1.5"/>
+    <rect x="190" y="60" width="120" height="65" rx="4" fill="#2D2D2D"/>
+    <text x="210" y="85" font-size="8" fill="#6BCB77" font-family="monospace">$ generate_startup</text>
+    <text x="195" y="100" font-size="7.5" fill="#999" font-family="monospace">→ Data mgmt for vets</text>
+    <text x="195" y="112" font-size="7.5" fill="#999" font-family="monospace">→ CRM for dentists</text>
+    <rect x="230" y="130" width="40" height="6" rx="3" fill="#666"/>
+    <g transform="translate(100,75)"><ellipse cx="0" cy="26" rx="13" ry="17" fill="white" stroke="#ddd" stroke-width="1.5"/><circle cx="0" cy="0" r="12" fill="white" stroke="#ddd" stroke-width="1.5"/><circle cx="-4" cy="-1" r="3" fill="#333"/><circle cx="4" cy="-1" r="3" fill="#333"/><circle cx="-3" cy="-2" r="1" fill="white"/><circle cx="5" cy="-2" r="1" fill="white"/><line x1="-6" y1="-10" x2="-10" y2="-19" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><circle cx="-10" cy="-19" r="2" fill="#666"/><line x1="6" y1="-10" x2="10" y2="-19" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><circle cx="10" cy="-19" r="2" fill="#666"/><path d="M-3 5 Q0 3 3 5" fill="none" stroke="#333" stroke-width="1.2" stroke-linecap="round"/><polygon points="-8,-10 0,-28 8,-10" fill="#7D3C98" opacity="0.8"/><circle cx="0" cy="-30" r="3" fill="#FFD93D"/></g>
+    <g transform="translate(390,90)"><circle cx="0" cy="0" r="11" fill="#FDBCB4"/><path d="M-11 -3 Q-13 -14 0 -14 Q13 -14 11 -3" fill="#3D2B1F"/><circle cx="-9" cy="-9" r="3.5" fill="#3D2B1F"/><circle cx="9" cy="-9" r="3.5" fill="#3D2B1F"/><circle cx="0" cy="-12" r="3" fill="#3D2B1F"/><circle cx="-3" cy="0" r="1.5" fill="#333"/><circle cx="3" cy="0" r="1.5" fill="#333"/><path d="M-2 4 Q0 6 2 4" fill="none" stroke="#333" stroke-width="0.8"/><rect x="-9" y="11" width="18" height="24" rx="6" fill="#4A90D9"/></g>
+    <g transform="translate(420,85)"><circle cx="0" cy="0" r="11" fill="#C68642"/><path d="M-9 -3 Q-11 -14 0 -14 Q11 -14 9 -3" fill="#1A1A1A"/><circle cx="-3" cy="0" r="1.5" fill="#333"/><circle cx="3" cy="0" r="1.5" fill="#333"/><path d="M-6 3 Q-7 9 0 10 Q7 9 6 3" fill="#1A1A1A" opacity="0.5"/><rect x="-9" y="11" width="18" height="24" rx="6" fill="#FF6B8A"/></g>
+    <g transform="translate(450,92)"><circle cx="0" cy="0" r="11" fill="#FDBCB4"/><path d="M-9 -3 Q-11 -14 0 -15 Q11 -14 9 -3" fill="#3D2B1F"/><circle cx="-3" cy="0" r="1.5" fill="#333"/><circle cx="3" cy="0" r="1.5" fill="#333"/><path d="M-2 4 Q0 6 2 4" fill="none" stroke="#333" stroke-width="0.8"/><rect x="-9" y="11" width="18" height="24" rx="6" fill="#6BCB77"/></g>
+    <circle cx="60" cy="130" r="8" fill="#FF9F43" opacity="0.5"/><circle cx="45" cy="140" r="6" fill="#FFD93D" opacity="0.5"/><circle cx="70" cy="145" r="5" fill="#FF6B8A" opacity="0.4"/>
+    <line x1="55" y1="110" x2="55" y2="145" stroke="#E67E22" stroke-width="3" stroke-linecap="round"/><circle cx="55" cy="105" r="7" fill="#FF9F43" stroke="#E67E22" stroke-width="1"/>
+    <line x1="440" y1="115" x2="440" y2="148" stroke="#C0392B" stroke-width="3" stroke-linecap="round"/><circle cx="440" cy="110" r="7" fill="#EE5A5A" stroke="#C0392B" stroke-width="1"/>
+    <text x="350" y="75" font-size="16" opacity="0.3">😐</text>
+  </svg>`,
+
+  crisis: `<svg viewBox="0 0 500 170" fill="none">
+    <rect x="0" y="148" width="500" height="22" rx="0" fill="#F5E6D3" opacity="0.4"/>
+    <path d="M200 15 Q250 0 300 15 Q330 22 330 40 L310 40 L320 55 L290 40 Q250 55 210 40 L180 55 L190 40 L170 40 Q170 22 200 15Z" fill="#AAA" opacity="0.3"/>
+    <line x1="240" y1="32" x2="245" y2="28" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="245" y1="28" x2="240" y2="24" stroke="#666" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="260" y1="32" x2="265" y2="28" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="265" y1="28" x2="260" y2="24" stroke="#666" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="248" y1="42" x2="248" y2="52" stroke="#4A90D9" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><line x1="255" y1="44" x2="255" y2="58" stroke="#4A90D9" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/><line x1="262" y1="42" x2="262" y2="50" stroke="#4A90D9" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+    <rect x="180" y="65" width="140" height="80" rx="8" fill="#E8E8E8" stroke="#CCC" stroke-width="1.5"/>
+    <rect x="190" y="75" width="120" height="55" rx="4" fill="#2D2D2D"/>
+    <line x1="195" y1="80" x2="305" y2="125" stroke="#EE5A5A" stroke-width="2.5" opacity="0.8"/><line x1="305" y1="80" x2="195" y2="125" stroke="#EE5A5A" stroke-width="2.5" opacity="0.8"/>
+    <text x="215" y="107" font-size="8" fill="#999" font-family="monospace" opacity="0.5">boring.exe</text>
+    <g transform="translate(85,100)"><circle cx="0" cy="0" r="11" fill="#FDBCB4"/><path d="M-11 -3 Q-13 -14 0 -14 Q13 -14 11 -3" fill="#3D2B1F"/><circle cx="-9" cy="-9" r="3.5" fill="#3D2B1F"/><circle cx="9" cy="-9" r="3.5" fill="#3D2B1F"/><circle cx="0" cy="-12" r="3" fill="#3D2B1F"/><circle cx="-3" cy="0" r="1.5" fill="#333"/><circle cx="3" cy="0" r="1.5" fill="#333"/><path d="M-3 5 Q0 3 3 5" fill="none" stroke="#333" stroke-width="0.8"/><rect x="-9" y="11" width="18" height="24" rx="6" fill="#4A90D9"/></g>
+    <g transform="translate(380,95)"><circle cx="0" cy="0" r="11" fill="#C68642"/><path d="M-9 -3 Q-11 -14 0 -14 Q11 -14 9 -3" fill="#1A1A1A"/><circle cx="-3" cy="0" r="1.5" fill="#333"/><circle cx="3" cy="0" r="1.5" fill="#333"/><path d="M-6 3 Q-7 9 0 10 Q7 9 6 3" fill="#1A1A1A" opacity="0.5"/><path d="M-3 5 Q0 3 3 5" fill="none" stroke="#333" stroke-width="0.8"/><rect x="-9" y="11" width="18" height="24" rx="6" fill="#FF6B8A"/></g>
+    <g transform="translate(425,100)"><circle cx="0" cy="0" r="11" fill="#FDBCB4"/><path d="M-9 -3 Q-11 -14 0 -15 Q11 -14 9 -3" fill="#3D2B1F"/><circle cx="-3" cy="0" r="1.5" fill="#333"/><circle cx="3" cy="0" r="1.5" fill="#333"/><path d="M-3 5 Q0 3 3 5" fill="none" stroke="#333" stroke-width="0.8"/><rect x="-9" y="11" width="18" height="24" rx="6" fill="#6BCB77"/></g>
+    <path d="M250 62 L244 78 L256 82 L240 100" stroke="#EE5A5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+  </svg>`,
+
+  pivot: `<svg viewBox="0 0 500 170" fill="none">
+    <rect x="0" y="148" width="500" height="22" rx="0" fill="#F5E6D3" opacity="0.4"/>
+    <g transform="translate(80,40)"><rect x="0" y="0" width="50" height="65" rx="4" fill="#B388D9" stroke="#7D3C98" stroke-width="1.5"/><rect x="5" y="5" width="40" height="55" rx="2" fill="#EDE0F5"/><text x="10" y="25" font-size="7" fill="#7D3C98" font-weight="bold">RATTO</text><text x="7" y="40" font-size="5.5" fill="#7D3C98">Critical</text><text x="7" y="48" font-size="5.5" fill="#7D3C98">Making</text></g>
+    <g transform="translate(160,30)"><rect x="0" y="0" width="50" height="65" rx="4" fill="#4A90D9" stroke="#2980B9" stroke-width="1.5"/><rect x="5" y="5" width="40" height="55" rx="2" fill="#D6EAF8"/><text x="7" y="25" font-size="7" fill="#2980B9" font-weight="bold">CHIANG</text><text x="7" y="40" font-size="5.5" fill="#2980B9">Art needs</text><text x="7" y="48" font-size="5.5" fill="#2980B9">choices</text></g>
+    <g transform="translate(240,45)"><rect x="0" y="0" width="50" height="65" rx="4" fill="#FF6B8A" stroke="#C0507E" stroke-width="1.5"/><rect x="5" y="5" width="40" height="55" rx="2" fill="#FDEAEF"/><text x="6" y="25" font-size="7" fill="#C0507E" font-weight="bold">SONTAG</text><text x="7" y="40" font-size="5.5" fill="#C0507E">Experience</text><text x="7" y="48" font-size="5.5" fill="#C0507E">over expl.</text></g>
+    <g transform="translate(340,55)">
+      <rect x="0" y="0" width="80" height="40" rx="20" fill="#E8E8E8" stroke="#CCC" stroke-width="1.5"/>
+      <circle cx="22" cy="20" r="14" fill="#EE5A5A"/><text x="16" y="24" font-size="9" fill="white" font-weight="bold">OFF</text>
+      <text x="44" y="24" font-size="8" fill="#999">EDIT</text>
+      <text x="20" y="-8" font-size="7" fill="#EE5A5A" font-weight="bold">INNER CRITIC</text>
+    </g>
+    <g transform="translate(340,105)">
+      <rect x="0" y="0" width="80" height="40" rx="20" fill="#D5F5E3" stroke="#6BCB77" stroke-width="1.5"/>
+      <circle cx="58" cy="20" r="14" fill="#6BCB77"/><text x="52" y="24" font-size="9" fill="white" font-weight="bold">ON</text>
+      <text x="10" y="24" font-size="8" fill="#1E8449">CREATE</text>
+      <text x="14" y="-8" font-size="7" fill="#6BCB77" font-weight="bold">JOY MODE</text>
+    </g>
+    <path d="M390 95 L390 105" stroke="#9B6FC3" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arrowPivot)"/>
+    <text x="105" y="130" font-size="14" fill="#FFD93D" opacity="0.5">✦</text><text x="185" y="120" font-size="10" fill="#9B6FC3" opacity="0.5">✦</text><text x="270" y="135" font-size="12" fill="#4ECDC4" opacity="0.4">✦</text>
+    <text x="440" y="50" font-size="28" fill="#FFD93D" opacity="0.4">💡</text>
+    <text x="440" y="140" font-size="22" fill="#6BCB77" opacity="0.4">✨</text>
+  </svg>`,
+
+  magic: `<svg viewBox="0 0 500 170" fill="none">
+    <rect x="0" y="148" width="500" height="22" rx="0" fill="#F5E6D3" opacity="0.4"/>
+    <g transform="translate(120,20)">
+      <circle cx="40" cy="50" r="35" fill="none" stroke="#333" stroke-width="2"/>
+      <circle cx="30" cy="40" r="7" fill="#FF6B8A"/><circle cx="45" cy="35" r="6" fill="#FFD93D"/><circle cx="38" cy="55" r="6" fill="#4A90D9"/><circle cx="52" cy="48" r="5" fill="#6BCB77"/><circle cx="28" cy="55" r="5" fill="#FF9F43"/><circle cx="42" cy="28" r="5.5" fill="#9B6FC3"/><circle cx="50" cy="60" r="4" fill="#FF6B8A" opacity="0.7"/><circle cx="32" cy="30" r="4" fill="#4ECDC4"/>
+      <rect x="28" y="85" width="24" height="12" rx="2" fill="#C0392B"/>
+      <rect x="34" y="97" width="12" height="10" rx="1" fill="#999"/>
+      <polygon points="28,10 40,-5 52,10" fill="#4A90D9" stroke="#2980B9" stroke-width="1"/><circle cx="40" cy="-7" r="3" fill="#FFD93D"/>
+      <text x="15" y="-10" font-size="7" fill="#FF6B8A" font-weight="bold">HELLO KITTY</text>
+    </g>
+    <g transform="translate(250,30)">
+      <rect x="0" y="0" width="100" height="120" rx="6" fill="white" stroke="#DDD" stroke-width="1.5"/>
+      <rect x="5" y="5" width="90" height="4" rx="2" fill="#EE5A5A"/><rect x="5" y="5" width="60" height="4" rx="2" fill="#FF9F43"/><rect x="5" y="5" width="30" height="4" rx="2" fill="#FFD93D"/>
+      <rect x="5" y="111" width="90" height="4" rx="2" fill="#4A90D9"/><rect x="5" y="111" width="60" height="4" rx="2" fill="#6BCB77"/><rect x="5" y="111" width="30" height="4" rx="2" fill="#4ECDC4"/>
+      <circle cx="50" cy="50" r="15" fill="none" stroke="#DDD" stroke-width="1" stroke-dasharray="3,2"/>
+      <path d="M40 45 Q50 35 60 45 Q65 55 50 65 Q35 55 40 45Z" fill="none" stroke="#FF6B8A" stroke-width="1.5"/>
+      <text x="37" y="90" font-size="6" fill="#9B6FC3">your dream</text>
+      <text x="42" y="98" font-size="6" fill="#9B6FC3">here...</text>
+      <text x="25" y="-6" font-size="7" fill="#9B6FC3" font-weight="bold">COLORING PAGE</text>
+    </g>
+    <g transform="translate(390,70)">
+      <rect x="0" y="5" width="8" height="55" rx="3" fill="#EE5A5A" transform="rotate(-8 4 30)"/><polygon points="0,5 4,-3 8,5" fill="#C0392B" transform="rotate(-8 4 30)"/>
+      <rect x="18" y="0" width="8" height="60" rx="3" fill="#4A90D9"/><polygon points="18,0 22,-8 26,0" fill="#2980B9"/>
+      <rect x="36" y="5" width="8" height="55" rx="3" fill="#FFD93D" transform="rotate(8 40 30)"/><polygon points="36,5 40,-3 44,5" fill="#D4AC0D" transform="rotate(8 40 30)"/>
+      <rect x="54" y="3" width="8" height="57" rx="3" fill="#6BCB77" transform="rotate(4 58 30)"/><polygon points="54,3 58,-5 62,3" fill="#1E8449" transform="rotate(4 58 30)"/>
+    </g>
+    <path d="M230 85 Q240 80 250 85" fill="none" stroke="#FF6B8A" stroke-width="1" opacity="0.5"/>
+    <text x="50" y="155" font-size="12" fill="#FFD93D" opacity="0.4">✦</text><text x="460" y="45" font-size="10" fill="#FF6B8A" opacity="0.5">♥</text><text x="470" y="145" font-size="10" fill="#9B6FC3" opacity="0.5">♥</text>
+    <path d="M30 20 Q60 5 90 20 Q110 28 100 50 Q90 35 70 30 Q50 28 30 40 Q20 28 30 20Z" fill="#FF6B8A" opacity="0.15"/>
+    <path d="M15 60 Q45 45 75 60 Q95 68 85 90 Q75 75 55 70 Q35 68 15 80 Q5 68 15 60Z" fill="#FFD93D" opacity="0.12"/>
+  </svg>`,
+
+  building: `<svg viewBox="0 0 500 170" fill="none">
+    <rect x="0" y="148" width="500" height="22" rx="0" fill="#F5E6D3" opacity="0.4"/>
+    <rect x="0" y="0" width="500" height="10" fill="none"/>
+    <line x1="50" y1="0" x2="80" y2="148" stroke="#4A90D9" stroke-width="4" opacity="0.3" stroke-linecap="round"/>
+    <line x1="150" y1="0" x2="130" y2="148" stroke="#9B6FC3" stroke-width="4" opacity="0.3" stroke-linecap="round"/>
+    <line x1="350" y1="0" x2="370" y2="148" stroke="#FF9F43" stroke-width="4" opacity="0.3" stroke-linecap="round"/>
+    <line x1="450" y1="0" x2="420" y2="148" stroke="#FF6B8A" stroke-width="4" opacity="0.3" stroke-linecap="round"/>
+    <line x1="250" y1="0" x2="260" y2="148" stroke="#FFD93D" stroke-width="4" opacity="0.3" stroke-linecap="round"/>
+    <rect x="170" y="88" width="160" height="8" rx="4" fill="#C0C0C0"/>
+    <path d="M170 96 L170 148 M330 96 L330 148" stroke="#C0C0C0" stroke-width="4"/>
+    <path d="M170 96 Q170 150 175 148 L325 148 Q330 150 330 96" fill="url(#fringeGrad)" opacity="0.3"/>
+    <defs><linearGradient id="fringeGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C0C0C0"/><stop offset="50%" stop-color="#E8E8E8"/><stop offset="100%" stop-color="#C0C0C0"/></linearGradient></defs>
+    <circle cx="200" cy="82" r="5" fill="#FF6B8A" opacity="0.6"/><circle cx="220" cy="80" r="4" fill="#FFD93D" opacity="0.6"/><circle cx="240" cy="82" r="5" fill="#6BCB77" opacity="0.6"/><circle cx="260" cy="79" r="4" fill="#FF9F43" opacity="0.6"/><circle cx="280" cy="82" r="5" fill="#9B6FC3" opacity="0.6"/><circle cx="300" cy="80" r="4" fill="#4A90D9" opacity="0.6"/>
+    <g transform="translate(250,45)"><ellipse cx="0" cy="22" rx="11" ry="14" fill="white" stroke="#ddd" stroke-width="1.2"/><circle cx="0" cy="0" r="10" fill="white" stroke="#ddd" stroke-width="1.2"/><circle cx="-3" cy="-1" r="2.5" fill="#333"/><circle cx="3" cy="-1" r="2.5" fill="#333"/><circle cx="-2" cy="-2" r="0.8" fill="white"/><circle cx="4" cy="-2" r="0.8" fill="white"/><line x1="-5" y1="-8" x2="-8" y2="-16" stroke="#666" stroke-width="1.2" stroke-linecap="round"/><circle cx="-8" cy="-16" r="1.5" fill="#666"/><line x1="5" y1="-8" x2="8" y2="-16" stroke="#666" stroke-width="1.2" stroke-linecap="round"/><circle cx="8" cy="-16" r="1.5" fill="#666"/><path d="M-3 3 Q0 6 3 3" fill="none" stroke="#333" stroke-width="1" stroke-linecap="round"/><polygon points="5,-8 12,-22 15,-6" fill="#6BCB77" opacity="0.9"/><circle cx="12" cy="-23" r="2" fill="#FFD93D"/></g>
+    <g transform="translate(80,115)"><circle cx="0" cy="0" r="10" fill="#C68642"/><path d="M-8 -3 Q-10 -13 0 -13 Q10 -13 8 -3" fill="#1A1A1A"/><circle cx="-3" cy="0" r="1.5" fill="#333"/><circle cx="3" cy="0" r="1.5" fill="#333"/><path d="M-5 3 Q-6 8 0 9 Q6 8 5 3" fill="#1A1A1A" opacity="0.5"/><polygon points="-5,-8 0,-20 5,-8" fill="#EE5A5A" opacity="0.9"/><circle cx="0" cy="-21" r="2" fill="#FFD93D"/><rect x="-8" y="10" width="16" height="20" rx="5" fill="#FF6B8A"/></g>
+    <rect x="60" y="135" width="40" height="3" rx="1.5" fill="#999"/><rect x="62" y="125" width="36" height="12" rx="2" fill="#333"/><rect x="64" y="127" width="32" height="8" rx="1" fill="#4A90D9" opacity="0.3"/>
+    <ellipse cx="400" cy="140" rx="14" ry="16" fill="#FF6B8A" opacity="0.25"/><ellipse cx="430" cy="138" rx="12" ry="14" fill="#FFD93D" opacity="0.25"/><ellipse cx="415" cy="145" rx="11" ry="13" fill="#6BCB77" opacity="0.2"/><ellipse cx="55" cy="148" rx="10" ry="12" fill="#4A90D9" opacity="0.2"/>
+    <g transform="translate(420,50)"><circle cx="0" cy="0" r="18" fill="none" stroke="#C0C0C0" stroke-width="0.8"/><path d="M-18 0 Q-14 -8 -8 -12 Q0 -18 8 -12 Q14 -8 18 0 Q14 8 8 12 Q0 18 -8 12 Q-14 8 -18 0Z" fill="#E8E8E8" opacity="0.4"/><line x1="0" y1="-18" x2="0" y2="18" stroke="#C0C0C0" stroke-width="0.5"/><line x1="-18" y1="0" x2="18" y2="0" stroke="#C0C0C0" stroke-width="0.5"/></g>
+    <g transform="translate(60,30)"><circle cx="0" cy="0" r="15" fill="none" stroke="#C0C0C0" stroke-width="0.8"/><path d="M-15 0 Q-12 -6 -6 -10 Q0 -15 6 -10 Q12 -6 15 0 Q12 6 6 10 Q0 15 -6 10 Q-12 6 -15 0Z" fill="#E8E8E8" opacity="0.4"/></g>
+  </svg>`,
+
+  showcase: `<svg viewBox="0 0 500 170" fill="none">
+    <rect x="0" y="148" width="500" height="22" rx="0" fill="#F5E6D3" opacity="0.4"/>
+    <line x1="30" y1="0" x2="50" y2="148" stroke="#4A90D9" stroke-width="3" opacity="0.2"/><line x1="120" y1="0" x2="100" y2="148" stroke="#FF6B8A" stroke-width="3" opacity="0.2"/><line x1="380" y1="0" x2="400" y2="148" stroke="#FFD93D" stroke-width="3" opacity="0.2"/><line x1="470" y1="0" x2="450" y2="148" stroke="#9B6FC3" stroke-width="3" opacity="0.2"/>
+    <path d="M0 0 L0 148 M500 0 L500 148" stroke="#DDD" stroke-width="1" opacity="0.3"/>
+    <rect x="335" y="18" width="90" height="60" rx="4" fill="#333" stroke="#4ECDC4" stroke-width="3"/>
+    <rect x="340" y="23" width="80" height="50" rx="2" fill="#1A1A1A"/>
+    <rect x="342" y="25" width="76" height="3" rx="1.5" fill="#EE5A5A"/><rect x="342" y="25" width="50" height="3" rx="1.5" fill="#FF9F43"/><rect x="342" y="25" width="25" height="3" rx="1.5" fill="#FFD93D"/>
+    <rect x="342" y="67" width="76" height="3" rx="1.5" fill="#4A90D9"/><rect x="342" y="67" width="50" height="3" rx="1.5" fill="#6BCB77"/><rect x="342" y="67" width="25" height="3" rx="1.5" fill="#4ECDC4"/>
+    <text x="352" y="48" font-size="6" fill="#6BCB77" font-family="monospace">m(AI)gic</text>
+    <text x="348" y="58" font-size="5" fill="#999" font-family="monospace">Tell me your dream...</text>
+    <g transform="translate(250,50)"><ellipse cx="0" cy="22" rx="13" ry="17" fill="white" stroke="#ddd" stroke-width="1.5"/><circle cx="0" cy="0" r="12" fill="white" stroke="#ddd" stroke-width="1.5"/><circle cx="-4" cy="-1" r="3" fill="#333"/><circle cx="4" cy="-1" r="3" fill="#333"/><circle cx="-3" cy="-2" r="1" fill="white"/><circle cx="5" cy="-2" r="1" fill="white"/><line x1="-6" y1="-10" x2="-10" y2="-19" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><circle cx="-10" cy="-19" r="2" fill="#666"/><line x1="6" y1="-10" x2="10" y2="-19" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><circle cx="10" cy="-19" r="2" fill="#666"/><path d="M-4 4 Q0 8 4 4" fill="none" stroke="#333" stroke-width="1.2" stroke-linecap="round"/><polygon points="5,-8 12,-22 15,-6" fill="#6BCB77" opacity="0.9"/><circle cx="12" cy="-23" r="2" fill="#FFD93D"/><path d="M-13 18 Q-22 10 -26 2" fill="none" stroke="#ddd" stroke-width="2.5" stroke-linecap="round"/><path d="M13 18 Q22 10 26 2" fill="none" stroke="#ddd" stroke-width="2.5" stroke-linecap="round"/></g>
+    <g transform="translate(195,110)"><circle cx="0" cy="0" r="10" fill="#FDBCB4"/><path d="M-8 -3 Q-10 -12 0 -13 Q10 -12 8 -3" fill="#6B4226"/><circle cx="-3" cy="0" r="1.5" fill="#333"/><circle cx="3" cy="0" r="1.5" fill="#333"/><path d="M-2 3 Q0 6 2 3" fill="none" stroke="#333" stroke-width="0.8"/><rect x="-8" y="10" width="16" height="20" rx="5" fill="#9B6FC3"/></g>
+    <g transform="translate(290,115)"><circle cx="0" cy="0" r="10" fill="#D2A679"/><path d="M-8 -3 Q-10 -12 0 -12 Q10 -12 8 -3" fill="#1A1A1A"/><circle cx="-3" cy="0" r="1.5" fill="#333"/><circle cx="3" cy="0" r="1.5" fill="#333"/><path d="M-2 3 Q0 6 2 3" fill="none" stroke="#333" stroke-width="0.8"/><rect x="-8" y="10" width="16" height="20" rx="5" fill="#FF9F43"/></g>
+    <g transform="translate(55,90)">
+      <rect x="0" y="0" width="70" height="50" rx="4" fill="white" stroke="#DDD" stroke-width="1"/>
+      <rect x="5" y="5" width="25" height="35" rx="2" fill="white" stroke="#EEE" stroke-width="0.5"/><circle cx="17" cy="18" r="6" fill="none" stroke="#FF6B8A" stroke-width="0.5" stroke-dasharray="2,1"/>
+      <rect x="35" y="5" width="25" height="35" rx="2" fill="white" stroke="#EEE" stroke-width="0.5"/><circle cx="47" cy="18" r="6" fill="none" stroke="#4A90D9" stroke-width="0.5" stroke-dasharray="2,1"/>
+      <rect x="10" y="42" width="8" height="3" rx="1" fill="#EE5A5A"/><rect x="22" y="42" width="8" height="3" rx="1" fill="#4A90D9"/><rect x="34" y="42" width="8" height="3" rx="1" fill="#FFD93D"/><rect x="46" y="42" width="8" height="3" rx="1" fill="#6BCB77"/>
+      <text x="10" y="-5" font-size="6" fill="#9B6FC3" font-weight="bold">COLORING STATION</text>
+    </g>
+    <ellipse cx="160" cy="145" rx="12" ry="14" fill="#FF6B8A" opacity="0.2"/><ellipse cx="350" cy="142" rx="10" ry="12" fill="#FFD93D" opacity="0.2"/><ellipse cx="450" cy="145" rx="11" ry="13" fill="#6BCB77" opacity="0.2"/><ellipse cx="440" cy="140" rx="9" ry="11" fill="#4A90D9" opacity="0.15"/>
+    <text x="140" y="30" font-size="10" fill="#FFD93D" opacity="0.4">✦</text><text x="460" y="100" font-size="8" fill="#FF6B8A" opacity="0.4">♥</text><text x="175" y="70" font-size="9" fill="#4ECDC4" opacity="0.3">✦</text>
+    <path d="M190 100 Q195 95 200 100" fill="none" stroke="#FFD93D" stroke-width="1" opacity="0.4"/><path d="M285 105 Q290 100 295 105" fill="none" stroke="#FFD93D" stroke-width="1" opacity="0.4"/>
+    <rect x="0" y="0" width="5" height="170" fill="rgba(200,200,200,0.1)"/><rect x="495" y="0" width="5" height="170" fill="rgba(200,200,200,0.1)"/>
+  </svg>`
 };
 
 let currentStage = 0;
@@ -1053,6 +1260,16 @@ function renderModal(index) {
       <h2>${s.title}</h2>
     </div>
   `;
+
+  // Scene illustration
+  const sceneEl = document.getElementById('modalScene');
+  if (s.scene && sceneSVGs[s.scene]) {
+    sceneEl.innerHTML = sceneSVGs[s.scene];
+    sceneEl.style.display = 'block';
+  } else {
+    sceneEl.innerHTML = '';
+    sceneEl.style.display = 'none';
+  }
 
   // Body
   let html = '';
